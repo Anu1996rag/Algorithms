@@ -8,7 +8,7 @@ def binary_search (sorted_list , item):
         
         if guess == item : #if the item found in the first search 
             pos = mid
-            return pos + 1
+            return pos + 1 #because indexing starts at 0
         elif guess > item : #if the guess element is less than the item we are searching for
             high = mid - 1   #make the middle + 1 element as low and discard the remaining element
         else:
