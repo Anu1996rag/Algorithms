@@ -11,20 +11,20 @@ Recursion Basics
 
 def countdown(i):
     print(i)
-    if i <= 0:
+    if i <= 0:   #base case
         return 
     else:
-        countdown(i-1)
+        countdown(i-1)  #recursion case
 
 print(countdown(10))
 
 #factorial no.
 
 def factorial(n):
-    if n == 1:
+    if n == 1:  #base case
         return 1
     else:
-        return n*factorial(n-1)
+        return n*factorial(n-1) #recursion case
     
 print(factorial(6))
 
