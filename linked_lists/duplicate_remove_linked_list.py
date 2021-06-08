@@ -19,7 +19,7 @@ class LinkedList:
     def print_list(self):
         temp = self.head
         while temp:
-            print(temp.data, end=" ")
+            print(temp.data, end="->")
             temp = temp.next
             
     # add node at the end of the list
@@ -59,6 +59,6 @@ class LinkedList:
 l1 = LinkedList()
 
 # insert values
-l1.insert_values([1, 2, 3,3,4,2,3])
+l1.insert_values([1, 2, 3,3,2,3])
 l1.remove_duplicates()
 l1.print_list()
