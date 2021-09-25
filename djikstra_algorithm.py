@@ -22,7 +22,7 @@ graph["b"]["finish"] = 5
 graph["finish"] = {}
 
 # creating a costs dictionary which stores all the weights or costs which we achieve to get to the node
-infinity = float("inf") # for declaring infinite value
+infinity = float("inf")  # for declaring infinite value
 
 costs = {}
 costs["a"] = 6
@@ -38,13 +38,14 @@ parents["finish"] = None
 # Finally , we need a list to keep the track of all the visited nodes so that we do not take the visited node again.
 visited = []
 
+
 # lets define a function which finds the node with the lowest cost
 def find_lowest_cost_node(costs_of_nodes):
     lowest_cost = infinity
     lowest_cost_node = None
     for node in costs_of_nodes:
         cost = costs_of_nodes[node]
-        if cost < lowest_cost and node not in visited : # if the cost of the passed node is less and the node is not visited yet
+        if cost < lowest_cost and node not in visited:  # if the cost of the passed node is less and the node is not visited yet
             lowest_cost = cost
             lowest_cost_node = node
     return lowest_cost_node
@@ -58,24 +59,19 @@ print("Lowest Cost node is:", node)
 while node is not None:
     cost_of_the_node = costs[node]  # get the cost of the lowest node and list all of its neighboring nodes
     neighbors = graph[node]
-    print("Neighbours of the node {} are:{}".format(node,neighbors))
+    print("Neighbours of the node {} are:{}".format(node, neighbors))
     for every_neighbor in neighbors.keys():
-        new_cost = cost_of_the_node + neighbors[every_neighbor] # if its cheaper to get to this neighbor by going
-        print("New cost calculated for node {} is {}:".format(every_neighbor,new_cost))
-        if costs[every_neighbor] > new_cost:                    # through this node
+        new_cost = cost_of_the_node + neighbors[every_neighbor]  # if its cheaper to get to this neighbor by going
+        print("New cost calculated for node {} is {}:".format(every_neighbor, new_cost))
+        if costs[every_neighbor] > new_cost:  # through this node
             print("Costs of the neighbors updated.")
-            costs[every_neighbor] = new_cost                    # update the cost of this node
-            parents[every_neighbor] = node                      # this node becomes the new parent
+            costs[every_neighbor] = new_cost  # update the cost of this node
+            parents[every_neighbor] = node  # this node becomes the new parent
             print("Added the node {} as the parent node".format(node))
     visited.append(node)
-    node = find_lowest_cost_node(costs) # find the next node to process and loop
-    print("New node with the lowest cost which is not visited yet :",node)
+    node = find_lowest_cost_node(costs)  # find the next node to process and loop
+    print("New node with the lowest cost which is not visited yet :", node)
 
-print("Updated parents:",parents)
+print("Updated parents:", parents)
 print("Visited Nodes:", visited)
-print("Shortest possible path from start to finish :",visited)
-
-
-
-
-
+print("Shortest possible path from start to finish :", visited)
